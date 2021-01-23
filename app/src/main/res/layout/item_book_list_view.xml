@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/icon_img_view"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/book" />
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="6dp"
+        android:layout_toLeftOf="@+id/book_btn"
+        android:layout_toRightOf="@+id/icon_img_view"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:text="@string/app_name"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/book_btn"
+        android:layout_width="90dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/app_name" />
+</RelativeLayout>
