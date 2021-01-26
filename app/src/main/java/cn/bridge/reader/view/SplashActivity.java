@@ -1,4 +1,4 @@
-package cn.bridge.reader;
+package cn.bridge.reader.view;
 
 import android.os.Handler;
 import android.os.Message;
@@ -21,16 +21,16 @@ public class SplashActivity extends AppCompatActivity {
     private TextView myTV;
 
     public static class MyHandler extends Handler { /* 弱引用,如果未使用,便会回收回去*/
-        public final WeakReference<cn.bridge.reader.SplashActivity> myWeakRef;
+        public final WeakReference<SplashActivity> myWeakRef;
 
-        public MyHandler(cn.bridge.reader.SplashActivity splashActivity) {
+        public MyHandler(SplashActivity splashActivity) {
             myWeakRef = new WeakReference<>(splashActivity);
         }
 
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            cn.bridge.reader.SplashActivity act = myWeakRef.get();
+            SplashActivity act = myWeakRef.get();
             if (msg.what == CODE)
 
                 if (act != null) {

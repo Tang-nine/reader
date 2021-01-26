@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="cn.bridge.reader.SplashActivity">
+    tools:context="cn.bridge.reader.view.SplashActivity">
 
     <ImageView
         android:id="@+id/splash_bg_pic"
