@@ -7,10 +7,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
+import java.util.List;
+
 import cn.bridge.reader.R;
+import cn.bridge.reader.response.BookListResult;
 import cz.msebera.android.httpclient.Header;
 
 /**
@@ -30,6 +34,7 @@ public class BookListActivity extends AppCompatActivity {
         String url = "https://www.imooc.com/api/teacher?type=10";
 
         AsyncHttpClient client = new AsyncHttpClient();
+
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onStart() {
@@ -43,8 +48,15 @@ public class BookListActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                // todo
-                Log.i(TAG, "onSuccess: "+new String(responseBody));
+                final String resultStr = new String(responseBody);
+
+                Gson gson = new Gson();
+
+                BookListResult bookListResult = gson.fromJson(resultStr, BookListResult.class);
+
+                List<BookListResult.Book> books = bookListResult.getData();
+
+                Log.i(TAG, "onSuccess: " + resultStr);
 
             }
 
